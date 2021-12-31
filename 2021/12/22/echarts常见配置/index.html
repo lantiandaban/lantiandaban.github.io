@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>echarts常见配置 | Hexo</title>
+
+
+    <meta name="keywords" content="Echarts">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="echarts常见配置最近由于业务需求开始接触echarts插件，ECharts是一款基于JavaScript的数据可视化图表库，提供直观，生动，可交互，可个性化定制的数据可视化图表。ECharts最初由百度团队开源，并于2018年初捐赠给Apache基金会，成为ASF孵化级项目。 官网：Apache ECharts 凭此篇博客记录下踩过的坑 入门引入js 1&lt;script src&#x3D;&amp;quo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="echarts常见配置">
+<meta property="og:url" content="http://example.com/2021/12/22/echarts%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="echarts常见配置最近由于业务需求开始接触echarts插件，ECharts是一款基于JavaScript的数据可视化图表库，提供直观，生动，可交互，可个性化定制的数据可视化图表。ECharts最初由百度团队开源，并于2018年初捐赠给Apache基金会，成为ASF孵化级项目。 官网：Apache ECharts 凭此篇博客记录下踩过的坑 入门引入js 1&lt;script src&#x3D;&amp;quo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/echarts%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE/image-20211231163929951-16409399723801.png">
+<meta property="og:image" content="http://example.com/echarts%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE/image-20211231163852465.png">
+<meta property="article:published_time" content="2021-12-22T08:44:20.000Z">
+<meta property="article:modified_time" content="2021-12-31T08:54:40.986Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Echarts">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/echarts%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE/image-20211231163929951-16409399723801.png">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/default.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Demo</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/friends/" class="navbar-menu button">友链</a>
+                
+                    <a href="/page/" class="navbar-menu button">Page</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/friends/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/page/" class="dropdown-menu button">Page</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        echarts常见配置
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2021/12/" class="post-meta__date button">2021-12-22</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="echarts常见配置"><a href="#echarts常见配置" class="headerlink" title="echarts常见配置"></a>echarts常见配置</h1><p>最近由于业务需求开始接触echarts插件，ECharts是一款基于JavaScript的数据可视化图表库，提供直观，生动，可交互，可个性化定制的数据可视化图表。ECharts最初由百度团队开源，并于2018年初捐赠给Apache基金会，成为ASF孵化级项目。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/index.html">Apache ECharts</a></p>
+<p>凭此篇博客记录下踩过的坑</p>
+<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><p>引入js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;echarts.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>初始化实例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var myChart = echarts.init(document.getElementById(&#x27;main&#x27;));</span><br></pre></td></tr></table></figure>
+
+<h2 id="基础组件"><a href="#基础组件" class="headerlink" title="基础组件"></a>基础组件</h2><h3 id="tooltip（提示框组件）"><a href="#tooltip（提示框组件）" class="headerlink" title="tooltip（提示框组件）"></a>tooltip（提示框组件）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">trigger: &#x27;axis&#x27;,//当出现多个数据需要设置多种格式时需要设置为axis</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>tooltip中是支持HTML的自定义风格可直接用<span>，也可以参考官网用字符串模板</p>
+<p>给tooltip中数据加单位</p>
+<p>方法一（利用回调函数）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">tooltip: &#123;</span><br><span class="line">    trigger: &#x27;axis&#x27;,</span><br><span class="line">    formatter:function(params)&#123;</span><br><span class="line">    var relval=params[0].name; //项目名</span><br><span class="line">    for(var i=0;i&lt;params.length;i++)&#123;</span><br><span class="line"> //marker为颜色   relval+=&#x27;&lt;br&gt;&#x27;+params[i].marker+params[i].seriesName+&#x27;:&#x27;+params[i].value+&#x27;个&#x27;</span><br><span class="line">   		 &#125;</span><br><span class="line">   		return relval;</span><br><span class="line">    &#125;,</span><br><span class="line">    textStyle:&#123;fontSize:25&#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>方法二（利用官方模板）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">formatter: &#x27;&#123;c&#125;&#x27;个</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="legend（图示组件）"><a href="#legend（图示组件）" class="headerlink" title="legend（图示组件）"></a>legend（图示组件）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"> right: &#x27;5%&#x27;, //离最右边距离5%的距离 同理left:&#x27;5%&#x27;为左边</span><br><span class="line"> top:&#x27;90&#x27;, //离顶部90像素块的地方</span><br><span class="line"> textStyle:&#123;fontSize:25&#125;//字体风格，可以调节大小，颜色，对齐方式</span><br><span class="line"> 自定义：</span><br><span class="line"> legend: &#123;</span><br><span class="line">    type: &#x27;scroll&#x27;,</span><br><span class="line">    orient: &#x27;&#x27;,</span><br><span class="line">    right: &#x27;15%&#x27;,</span><br><span class="line">    top: &#x27;25%&#x27;,</span><br><span class="line">  formatter:  function(name)&#123;</span><br><span class="line">    var target;</span><br><span class="line">    for (var i = 0, l = data.length; i &lt; l; i++) &#123;//这个data要定义为全局变量</span><br><span class="line">   </span><br><span class="line">    if (data[i].name == name) &#123;</span><br><span class="line">        target = data[i].value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    var arr = [</span><br><span class="line">        &#x27;&#123;b|&#x27;+name+&#x27;&#125;&#x27;,</span><br><span class="line">        &#x27;&#123;a|&#x27;+target+&#x27;&#125;&#x27;,</span><br><span class="line">    ]</span><br><span class="line">    return arr.join(&#x27; &#x27;)</span><br><span class="line">&#125;,</span><br><span class="line">textStyle:&#123;</span><br><span class="line">    rich:&#123;</span><br><span class="line">        a:&#123;</span><br><span class="line">           </span><br><span class="line">            align:&#x27;center&#x27;,</span><br><span class="line">            padding:[0,10,5,5],</span><br><span class="line">            lineHeight:25,</span><br><span class="line">            color:&#x27;#1975d1&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        b:&#123;</span><br><span class="line">            </span><br><span class="line">            align:&#x27;center&#x27;,</span><br><span class="line">            padding:[0,10,5,5],</span><br><span class="line">            lineHeight:25</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="title-标题组件"><a href="#title-标题组件" class="headerlink" title="title(标题组件)"></a>title(标题组件)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">title: &#123;</span><br><span class="line">    text: &#x27;我是主标题&#x27;,</span><br><span class="line">    textStyle: &#123;fontSize: 35,fontWeight:&#x27;normal&#x27;&#125;,//主标题字体风格</span><br><span class="line">    subtext: &#x27;我是副标题&#x27;,</span><br><span class="line">    subtextStyle:&#123;fontSize: 35,fontWeight:&#x27;normal&#x27;//副标题字体风格</span><br><span class="line">    left: &#x27;center&#x27; //默认居中</span><br><span class="line">    &#125;</span><br><span class="line">自定义一段标题不同风格：</span><br><span class="line">     subtext: &#x27;&#123;a|我是样式一&#125;&#123;b|我是样式二&#125;&#x27;,</span><br><span class="line">               </span><br><span class="line">                 subtextStyle:&#123;</span><br><span class="line">               </span><br><span class="line">                    rich:&#123;</span><br><span class="line">                        a:&#123;</span><br><span class="line">                            fontSize:35,</span><br><span class="line">                            color:&#x27;#000000&#x27;,</span><br><span class="line">                            fontWeight:&#x27;normal&#x27;,</span><br><span class="line">                        &#125;,</span><br><span class="line">                        b:&#123;</span><br><span class="line">                            fontSize:25,</span><br><span class="line">                            color:&#x27;#000000&#x27;,</span><br><span class="line">                             fontWeight:&#x27;bold&#x27;,</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                  &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="graphic-自定义文段组件"><a href="#graphic-自定义文段组件" class="headerlink" title="graphic(自定义文段组件)"></a>graphic(自定义文段组件)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">graphic: [</span><br><span class="line">         &#123;</span><br><span class="line">            type: &#x27;group&#x27;,</span><br><span class="line">            left: &#x27;10%&#x27;,	 //里左边的距离</span><br><span class="line">            bottom: 130, 	 //从下往上数的像素块</span><br><span class="line">            backgroundColor: &#x27;#F6F8FC&#x27;,		//背景颜色</span><br><span class="line">        borderColor: &#x27;blue&#x27;,	//边框颜色</span><br><span class="line">        borderWidth: 1,		//边框粗度</span><br><span class="line">        borderRadius: 4,	//边框角弧度</span><br><span class="line">        /* 以上为父属性，如果下面的子属性为设置便用上面的属性，目的是为了方便多个子文段*/</span><br><span class="line">            children: [</span><br><span class="line">                &#123;</span><br><span class="line">                    type: &#x27;text&#x27;,//属性为文本，也支持图片/链接等</span><br><span class="line">                    z: 100,</span><br><span class="line">                    left: &#x27;10%&#x27;,</span><br><span class="line">                    </span><br><span class="line">                    style: &#123;</span><br><span class="line">                        fill: &#x27;#333&#x27;,	//文字颜色</span><br><span class="line">                        text: [</span><br><span class="line">                            &#x27;我是文本内容&#x27;</span><br><span class="line">                        ].join(&#x27;\n&#x27;),</span><br><span class="line">                        font: &#x27;30px Microsoft YaHei&#x27;	//大小及字体</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h2><h3 id="y轴显示"><a href="#y轴显示" class="headerlink" title="y轴显示"></a>y轴显示</h3><p>y轴是两边都可以设置不同属性，见下边的实例便很清楚了，左边为金额，右边为百分比</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">yAxis: [</span><br><span class="line">    &#123;</span><br><span class="line">      name:&#x27;金额（万元）&#x27;,</span><br><span class="line">      type: &#x27;value&#x27;,	//数据值</span><br><span class="line">      min: 0,	//最低值</span><br><span class="line">      max: 3000,	//最大值</span><br><span class="line">      interval: 500,	//间隔 每格代表500</span><br><span class="line">      axisLabel: &#123;   inside: false,</span><br><span class="line">            textStyle: &#123;</span><br><span class="line">                color: &#x27;black&#x27;,</span><br><span class="line">                fontSize:&#x27;&#x27;,	//不设置为默认字体大小</span><br><span class="line">                itemSize:&#x27;&#x27;&#125;,</span><br><span class="line">                formatter: &#x27;&#123;value&#125; &#x27;万元 &#125;,	//自定义格式 可用于加说明或单位</span><br><span class="line">      splitLine: &#123; show: false &#125;	//是否开启辅助线</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name:&#x27;进度（%）&#x27;,</span><br><span class="line">      min: 0,</span><br><span class="line">      max: 100,</span><br><span class="line">      interval: 20,</span><br><span class="line">      splitLine: &#123; show: false &#125;,</span><br><span class="line">      axisLabel: &#123;   inside: false,interval: 0,</span><br><span class="line">            textStyle: &#123;</span><br><span class="line">                color: &#x27;black&#x27;,</span><br><span class="line">                fontSize:&#x27;&#x27;,</span><br><span class="line">                itemSize:&#x27;&#x27;&#125;,</span><br><span class="line">                formatter: &#x27;&#123;value&#125; %&#x27; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br></pre></td></tr></table></figure>
+
+<h3 id="x轴显示"><a href="#x轴显示" class="headerlink" title="x轴显示"></a>x轴显示</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">xAxis: &#123;</span><br><span class="line">    type: &#x27;category&#x27;,</span><br><span class="line"> 	axisPointer: &#123;</span><br><span class="line">        type: &#x27;shadow&#x27;</span><br><span class="line">      &#125;,</span><br><span class="line">    data:’‘,	//数据填充 一般默认List（Map&lt;String,Object&gt;）</span><br><span class="line">    axisLabel: &#123;</span><br><span class="line">            interval: 0, //保证所有数据都能呈现出来</span><br><span class="line">            rotate: 30,//字体倾斜度，当数据过多无法显示时可以调节下倾斜度</span><br><span class="line">            textStyle: &#123;</span><br><span class="line">                color: &#x27;black&#x27;,</span><br><span class="line">                 fontSize:&#x27;23&#x27;,</span><br><span class="line">                itemSize:&#x27;&#x27;,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="合格线"><a href="#合格线" class="headerlink" title="合格线"></a>合格线</h3><p>设置一条平行与x的合格线</p>
+<p>这个需要加在y轴的series: [{  <strong>加在这里</strong> }]里面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">markLine: &#123;</span><br><span class="line">        silent: true,</span><br><span class="line">        lineStyle: &#123;</span><br><span class="line">          normal: &#123;</span><br><span class="line">            color: &#x27;red&#x27;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        data: [</span><br><span class="line">          &#123;</span><br><span class="line">            yAxis: 5 //数值</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br></pre></td></tr></table></figure>
+
+<h3 id="rich-富文本"><a href="#rich-富文本" class="headerlink" title="rich(富文本)"></a>rich(富文本)</h3><p>该功能十分强大，需要配合formatter就可以实现多种文本字体，颜色，类型，丰富文本，可运用在不同的组件，支持文本，图片</p>
+<p>这里的话直接上官方示例就很清楚了</p>
+<p><a target="_blank" rel="noopener" href="https://echarts.apache.org/examples/zh/editor.html?c=pie-rich-text">Examples - Apache ECharts</a></p>
+<h3 id="function（回调函数）"><a href="#function（回调函数）" class="headerlink" title="function（回调函数）"></a>function（回调函数）</h3><p>这个功能就很强大了，一般需要我们对文段继续多种自定义设置，ECharts是一款基于JavaScript，由此我们可以利用function来实现后台数据的传输和格式化，从而达到多种风格</p>
+<p>这边给出俩个实例，都是结合富文本实现的：</p>
+<p><img src="/echarts%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE/image-20211231163929951-16409399723801.png" alt="image-20211231163929951"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">label:&#123;</span><br><span class="line">       formatter:function(params)&#123; </span><br><span class="line">       return &#x27;&#123;aTitle|&#x27;+params.name+&#x27;:&#125;&#123;aValue|&#x27;+parseFloat((params.data.value/10000).toFixed(2))+&#x27;亿元&#125;\n&#123;bTitle|同比增长:&#125;&#123;bValue|&#x27;+(params.data.tb/100).toFixed(2)+&#x27;倍&#125;\n&#123;cTitle|占比:&#125;&#123;cValue|&#x27;+parseFloat(params.percent.toFixed(2))+&#x27;%&#125;&#x27;;</span><br><span class="line">     		&#125;,</span><br><span class="line">     		backgroundColor: &#x27;#F6F8FC&#x27;,</span><br><span class="line">        borderColor: &#x27;#31c1e7&#x27;,</span><br><span class="line">        borderWidth: 1,</span><br><span class="line">        borderRadius: 0,</span><br><span class="line">     		 rich:&#123;</span><br><span class="line">        aTitle:&#123;</span><br><span class="line">       color: &#x27;#333&#x27;,</span><br><span class="line">              height: 30,</span><br><span class="line">              padding: [5, 5, 5, 5],</span><br><span class="line">              align: &#x27;left&#x27;,</span><br><span class="line">               fontSize: myFontSize,</span><br><span class="line">        &#125;,</span><br><span class="line">        aValue:&#123;</span><br><span class="line">       color: &#x27;#333&#x27;,</span><br><span class="line">              height: 30,</span><br><span class="line">              padding: [5, 5, 5, 5],</span><br><span class="line">              align: &#x27;left&#x27;,</span><br><span class="line">               fontSize: myFontSize,</span><br><span class="line">        &#125;,</span><br><span class="line">         bTitle:&#123;</span><br><span class="line">         color: &#x27;#333&#x27;,</span><br><span class="line">              height: 30,</span><br><span class="line">              padding: [5, 5, 5, 5],</span><br><span class="line">              align: &#x27;left&#x27;,</span><br><span class="line">               fontSize: myFontSize,</span><br><span class="line">         &#125;,</span><br><span class="line">         bValue:&#123;</span><br><span class="line">        color: &#x27;#333&#x27;,</span><br><span class="line">              height: 30,</span><br><span class="line">              padding: [5, 5, 5, 5],</span><br><span class="line">              align: &#x27;left&#x27;,</span><br><span class="line">               fontSize: myFontSize,</span><br><span class="line">         &#125;,</span><br><span class="line">         cTitle:&#123;</span><br><span class="line">         color: &#x27;#333&#x27;,</span><br><span class="line">              height: 30,</span><br><span class="line">              padding: [5, 5, 5, 5],</span><br><span class="line">              align: &#x27;left&#x27;,</span><br><span class="line">               fontSize: myFontSize,</span><br><span class="line">         &#125;,</span><br><span class="line">         cValue:&#123;</span><br><span class="line">          color: &#x27;#333&#x27;,</span><br><span class="line">              height: 30,</span><br><span class="line">              padding: [5, 5, 5, 5],</span><br><span class="line">              align: &#x27;left&#x27;,</span><br><span class="line">               fontSize: myFontSize,</span><br><span class="line">         &#125;,</span><br><span class="line">     		&#125;</span><br><span class="line">     	&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/echarts%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE/image-20211231163852465.png" alt="image-20211231163852465"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">label: &#123;</span><br><span class="line">      textStyle: &#123;</span><br><span class="line">          align: &#x27;right&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        formatter:function(params)&#123; </span><br><span class="line">    	var text=params.data.problemName+&#x27;&#x27;; //提取后台数据</span><br><span class="line">    	var patt=/,/g;</span><br><span class="line">    	var Arr;</span><br><span class="line">    	var result;</span><br><span class="line">    	var temp=&#x27;&#x27;;</span><br><span class="line">    	if(patt.test(text))&#123;	//以，为判断条件，判断是否为空或长度为1</span><br><span class="line">    	Arr=text.split(&quot;,&quot;);	//以，分离成数组</span><br><span class="line">        &#125;else if(text.length!=0)&#123;</span><br><span class="line">        Arr=new Array(text);	//如果长度为1则直接变成数组</span><br><span class="line">        &#125;</span><br><span class="line">        for(var i=0;i&lt;Arr.length;i++)&#123;</span><br><span class="line">      	</span><br><span class="line">         result=Arr.length-i+&quot;    &quot;+Arr[i]+&quot;\n&quot;;//遍历添加序号和单位数据</span><br><span class="line">         </span><br><span class="line">        temp=result+temp;//储存数据</span><br><span class="line">        &#125;</span><br><span class="line">        return &#x27;&#123;atitle|&#x27;+params.name+&#x27;:&#125;\n &#123;dValue|&#x27;+parseFloat(params.percent.toFixed(2))+&#x27;%&#125;&#123;bTitle|总投资额: &#125;&#123;bValue|&#x27;+(params.data.value).toFixed(2)+&#x27;亿元&#125;\n&#123;cValue|&#x27;+temp+&#x27;&#125;&#x27;;</span><br><span class="line">        &#125;,</span><br><span class="line">       </span><br><span class="line">        backgroundColor: &#x27;#F6F8FC&#x27;,</span><br><span class="line">       borderColor: &#x27;#31c1e7&#x27;,</span><br><span class="line">        borderWidth: 1,</span><br><span class="line">        borderRadius: 0,</span><br><span class="line">        rich:&#123;</span><br><span class="line">        atitle:&#123;</span><br><span class="line">          color: &#x27;#333&#x27;,</span><br><span class="line">              height: 24,</span><br><span class="line">              padding: [0, 5, 0, 5],</span><br><span class="line">              align: &#x27;left&#x27;,</span><br><span class="line">               fontSize: &#x27;20&#x27;,</span><br><span class="line">               fontWeight:&#x27;bold&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">         </span><br><span class="line">         bTitle:&#123;</span><br><span class="line">          color: &#x27;#333&#x27;,</span><br><span class="line">              height: 24,</span><br><span class="line">              padding: [0, 5, 3, 5],</span><br><span class="line">              align: &#x27;left&#x27;,</span><br><span class="line">               fontSize: &#x27;20&#x27;,</span><br><span class="line">               fontWeight:&#x27;bold&#x27;</span><br><span class="line">         &#125;,</span><br><span class="line">         bValue:&#123;</span><br><span class="line">          color: &#x27;#333&#x27;,</span><br><span class="line">              height: 24,</span><br><span class="line">              padding: [0, 5, 3, 5],</span><br><span class="line">              align: &#x27;left&#x27;,</span><br><span class="line">               fontSize: &#x27;20&#x27;,</span><br><span class="line">               fontWeight:&#x27;bold&#x27;</span><br><span class="line">         &#125;,</span><br><span class="line">         </span><br><span class="line">         dValue:&#123;</span><br><span class="line">          color: &#x27;#333&#x27;,</span><br><span class="line">              height: 24,</span><br><span class="line">              padding: [0, 5, 3, 5],</span><br><span class="line">              align: &#x27;left&#x27;,</span><br><span class="line">               fontSize: &#x27;20&#x27;,</span><br><span class="line">               fontWeight:&#x27;bold&#x27;</span><br><span class="line">         &#125;,</span><br><span class="line">         cValue:&#123;</span><br><span class="line">          height: 25,</span><br><span class="line">              padding: [0, 10, 0, 30],</span><br><span class="line">              align: &#x27;left&#x27;,</span><br><span class="line">               fontSize: &#x27;18&#x27;,</span><br><span class="line">         &#125;,</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>提一笔，params是代表这x轴 或y轴里面的数据</p>
+<p>例如 params.name 就是数据名</p>
+<p>​        params.value 就是数据值</p>
+<p>​        params.data.xx js数据里面名为xx的数据</p>
+<h3 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h3><p>模板变量有 <code>&#123;a&#125;</code>, <code>&#123;b&#125;</code>，<code>&#123;c&#125;</code>，<code>&#123;d&#125;</code>，<code>&#123;e&#125;</code>，分别表示系列名，数据名，数据值等。 在 <a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/option.html#tooltip.trigger">trigger</a> 为 <code>&#39;axis&#39;</code> 的时候，会有多个系列的数据，此时可以通过 <code>&#123;a0&#125;</code>, <code>&#123;a1&#125;</code>, <code>&#123;a2&#125;</code> 这种后面加索引的方式表示系列的索引。 不同图表类型下的 <code>&#123;a&#125;</code>，<code>&#123;b&#125;</code>，<code>&#123;c&#125;</code>，<code>&#123;d&#125;</code> 含义不一样。 其中变量<code>&#123;a&#125;</code>, <code>&#123;b&#125;</code>, <code>&#123;c&#125;</code>, <code>&#123;d&#125;</code>在不同图表类型下代表数据含义为：</p>
+<ul>
+<li>折线（区域）图、柱状（条形）图、K线图 : <code>&#123;a&#125;</code>（系列名称），<code>&#123;b&#125;</code>（类目值），<code>&#123;c&#125;</code>（数值）, <code>&#123;d&#125;</code>（无）</li>
+<li>散点图（气泡）图 : <code>&#123;a&#125;</code>（系列名称），<code>&#123;b&#125;</code>（数据名称），<code>&#123;c&#125;</code>（数值数组）, <code>&#123;d&#125;</code>（无）</li>
+<li>地图 : <code>&#123;a&#125;</code>（系列名称），<code>&#123;b&#125;</code>（区域名称），<code>&#123;c&#125;</code>（合并数值）, <code>&#123;d&#125;</code>（无）</li>
+<li>饼图、仪表盘、漏斗图: <code>&#123;a&#125;</code>（系列名称），<code>&#123;b&#125;</code>（数据项名称），<code>&#123;c&#125;</code>（数值）, <code>&#123;d&#125;</code>（百分比）</li>
+</ul>
+<p>好了，暂时先更新到这里，后面有遇到新的问题再来补充~~~</p>
+<p>附赠大佬俩个3D示例：</p>
+<p>3D饼图</p>
+<p><a target="_blank" rel="noopener" href="https://www.makeapie.com/editor.html?c=xzc6Fw_Q4&v=7">Make A Pie - 3D 饼图尝试中（新版支持饼环，请见另一个作品，链接后附）</a></p>
+<p>3D环形图</p>
+<p>[Make A Pie - 3D 饼环图初步完成](</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2021-12-31</p></div> 
+    <div class="post-entry__tags"><a href="/tags/Echarts/" class="post-tags__link button"># Echarts</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/2021/12/31/hello-world/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Hello World
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+        </div>
+    </div>
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2021 <a href="/">Hexo</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+    </body>
+</html>
